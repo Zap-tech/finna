@@ -1,0 +1,62 @@
+#+TITLE: finna - An Ethereum Blockchain Scratchpad
+#+AUTHOR: Benjamin Zaporzan
+#+DATE: 2019-10-24
+#+EMAIL: benzaporzan@gmail.com
+#+LANGUAGE: en
+#+OPTIONS: H:2 num:t toc:t \n:nil ::t |:t ^:t f:t tex:t
+
+
+/finna is still in early development, expect things to change/
+
+
+*finna* is a tool to quickly and easily read to and write smart
+contracts on the ethereum blockchain, and much more. *finna* runs in
+the browser and is powered by [[https://github.com/benzap/fif][fif]], a stack-based scripting language.
+
+Here is an example of *finna* in action
+
+#+BEGIN_SRC clojure
+
+;; finna - An Ethereum Blockchain Scratchpad
+
+;; Some user address that we're interested in
+let some-address "0xad7ad87afdafdaf8d7afd8af7d"
+
+
+;; Let's look at how much eth it has
+"some-address has " . (account/balance some-address)$ to-eth . " ETH" . cr
+
+
+;; This uses etherscan to retrieve the contract ABI, which generates
+;; members and methods within the `some-erc-20-coin` namespace.
+(contract *some-erc20-coin "0x32049328432098523059")$
+
+
+;; Now that it's populated, this will transfer the given ERC20 coin
+;; from the provider (metamask, coinbase, etc) to the given address.
+(some-erc20-coin/transferFrom account/default "0x898274923847239847" 1000.0)$
+
+
+;; The appropriate prompts will appear to carry out the transaction
+
+
+(sleep 30 1000 *)$ ;; Sleep for 30 seconds
+
+
+;; Assuming the account had no tokens previously, let's now confirm
+;; that the transfer completed successfully (there are better ways to
+;; do this, this is just a proof of concept)
+(some-erc20-coin/getBalance some-address)$ 1000 >= if
+  "Transfer Completed Successfully!" . cr
+else
+  "Transfer Failed, or hasn't completed yet!" . cr
+then
+
+#+END_SRC
+
+
+* Disclaimer
+  Benjamin Zaporzan and Zaptech Enterprises does not take
+  responsibility for how this tool is used. We also do not take
+  responsibility for stolen or lost cryptocurrency. Please use at your
+  own discretion.
