@@ -18,7 +18,8 @@
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
   :plugins [[lein-ancient "0.6.15"]
-            [lein-cljsbuild "1.1.7"]]
+            [lein-cljsbuild "1.1.7"]
+            [lein-npm "0.6.2"]]
 
   :figwheel {:css-dirs ["resources/public/css"]
              :server-port 8081}
@@ -48,6 +49,12 @@
                                    :main finna.test-runner
                                    :target :nodejs
                                    :optimizations :none}}}}
+
+  :npm {:dependencies
+
+         ;; Development Dependencies
+         [less "3.10.3"]
+         [less-watch-compiler "1.14.1"]}
 
   :profiles
   {:dev
