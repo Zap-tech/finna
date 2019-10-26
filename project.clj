@@ -52,9 +52,9 @@
 
   :npm {:dependencies
 
-         ;; Development Dependencies
-         [less "3.10.3"]
-         [less-watch-compiler "1.14.1"]}
+        ;; Development Dependencies
+        [[less "3.10.3"]
+         [less-watch-compiler "1.14.1"]]}
 
   :profiles
   {:dev

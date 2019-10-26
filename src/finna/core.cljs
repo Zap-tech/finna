@@ -1,3 +1,8 @@
-(ns finna.core)
+(ns finna.core
+  (:require
+   [re-frame.core :as re]
+   [reagent.core :as r]))
 
-(.log js/console "Hello World!")
+
+
+(defn render [])
