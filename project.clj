@@ -26,7 +26,7 @@
 
   :cljsbuild {:builds {:dev
                        {:source-paths ["src"] 
-                        :figwheel true
+                        :figwheel {:on-jsload "finna.core/re-render"}
                         :compiler {:main finna.core
                                    :output-dir "resources/public/js/compiled/out"
                                    :output-to "resources/public/js/compiled/finna.js"

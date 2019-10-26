@@ -1,1 +1,0 @@
-{:output-to "resources/public/js/compiled/test/test-runner.js", :output-dir "resources/public/js/compiled/test/out", :main finna.test-runner, :target :nodejs, :optimizations :none}

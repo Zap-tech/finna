@@ -1,5 +1,23 @@
 /// main.less -- Main Stylesheet for finna
 
-* {
-  box-sizing: border-box;
-}
+//
+// Imports
+//
+
+// Normalize CSS Stylesheet
+@import "base/normalize";
+
+// General Styling
+@import "base/animation";
+@import "base/color";
+@import "base/font";
+@import "base/media";
+
+// Base Styling for HTML Components
+@import "base/style";
+
+// Ethlance Styling
+@import "mixins";
+@import "components";
+@import "panels";
+@import "pages";

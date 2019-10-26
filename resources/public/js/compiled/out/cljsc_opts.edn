@@ -1,1 +1,0 @@
-{:output-dir "resources/public/js/compiled/out", :optimizations :none, :preloads [figwheel.connect], :output-to "resources/public/js/compiled/finna.js", :source-map-timestamp true, :asset-path "js/compiled/out", :external-config #:figwheel{:config {:build-id "dev", :websocket-url "ws://localhost:8081/figwheel-ws"}}, :main finna.core, :pretty-print true}
