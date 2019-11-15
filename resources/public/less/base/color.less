@@ -1,12 +1,32 @@
 /// color.less -- The Color Palette used for Finna
 
 
-@color-red: red;
-
+@color-blue: #4c6093;
+@color-dark: #3c3c3d;
+@color-gold: #c99d66;
+@color-green: #6fcb9f;
+@color-offblack: #755f62;
+@color-offwhite: #fefed6;
+@color-orange: #fca658;
+@color-red: #fb2e01;
+@color-white: white;
+@color-yellow: #fffeb3;
 
 #color() {
-  primary: black;
-  secondary: grey;
-  background-light: white;
+  primary: @color-dark;
+  secondary: @color-white;
+  accent: @color-gold;
+  background-primary: @color-white;
+  background-secondary: @color-offblack;
+
+  blue: @color-blue;
+  dark: @color-dark;
+  gold: @color-gold;
+  green: @color-green;
+  offblack: @color-offblack;
+  offwhite: @color-offwhite;
+  orange: @color-orange;
   red: @color-red;
+  white: @color-white;
+  yellow: @color-yellow;
 }

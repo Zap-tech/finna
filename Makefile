@@ -1,9 +1,7 @@
 # Makefile for Development and Production Builds
-
 .PHONY: fig-dev build-css watch-css
 .PHONY: build deps clean clean-all
 .PHONY: help
-
 
 #
 # Start
@@ -51,6 +49,7 @@ build-ui:
 LESS_WATCH_SCRIPT := ./node_modules/less-watch-compiler/dist/less-watch-compiler.js
 LESS_BIN_PATH := ./node_modules/less/bin
 PATH := $(LESS_BIN_PATH):$(PATH)
+
 
 watch-css:
 	node $(LESS_WATCH_SCRIPT) resources/public/less resources/public/css main.less

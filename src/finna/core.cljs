@@ -1,14 +1,15 @@
 (ns finna.core
   (:require
    [re-frame.core :as re]
-   [reagent.core :as r]))
+   [reagent.core :as r]
+   [finna.page.main :refer [c-main]]))
 
 
 (enable-console-print!)
 
 
 (defn main-layout []
-  [:div "Hello World!"])
+  [c-main])
 
 
 (defn render []
@@ -17,7 +18,8 @@
 
 (defn re-render []
   (println "Re-rendering...")
-  (render))
+  (render)
+  (r/force-update-all))
 
 
 (defn init []
