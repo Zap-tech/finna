@@ -1,0 +1,18 @@
+/// editor.less -- Styling for the CodeMirror Editor Component
+
+// Inline the CSS stylesheets
+@import (inline) "../../third_party/codemirror/lib/codemirror.css";
+@import (inline) "../../third_party/codemirror/addon/scroll/simplescrollbars.css";
+
+.codemirror.editor {
+  height: 100%;
+
+  textarea {
+    font-family: #font[monospace];
+  }
+
+  > .CodeMirror {
+    height: 100%;
+    font-family: #font[monospace];
+  }
+}
