@@ -5,11 +5,12 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/clojurescript "1.10.520"]
+                 [funcool/cuerdas "2.2.0"]
                  [reagent "0.9.0-rc2"]
                  [re-frame "0.11.0-rc2"]
                  [day8.re-frame/http-fx "v0.2.0"]
                  [org.clojure/core.async "0.4.500"]
-                 [cljs-http "0.1.46"]]
+                 [fif-lang/fif "1.4.0"]]
 
   :repl-options {:init-ns user
                  :nrepl-middleware [cider.piggieback/wrap-cljs-repl]}

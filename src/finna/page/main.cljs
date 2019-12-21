@@ -13,4 +13,5 @@
    [:div.panel.left "left"]
    [:div.panel.content [c-editor]]
    [:div.panel.right "right"]
-   [:div.footer "footer"]])
+   [:div.footer
+    "© 2019 Zaptech Enterprises"]])
