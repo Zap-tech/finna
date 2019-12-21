@@ -2,7 +2,10 @@
   (:require
    [re-frame.core :as re]
    [reagent.core :as r]
-   [finna.page.main :refer [c-main]]))
+   [finna.page.main :refer [c-main]]
+   [finna.events]
+   [finna.subscriptions]
+   [finna.effects]))
 
 
 (enable-console-print!)
@@ -24,6 +27,7 @@
 
 (defn init []
   (println "Initializing Finna.")
+  (re/dispatch-sync [:initialize])
   (render))
 
 

@@ -7,10 +7,11 @@
                  [org.clojure/clojurescript "1.10.520"]
                  [reagent "0.9.0-rc2"]
                  [re-frame "0.11.0-rc2"]
+                 [day8.re-frame/http-fx "v0.2.0"]
                  [org.clojure/core.async "0.4.500"]
                  [cljs-http "0.1.46"]]
 
-  :repl-options {:init-ns finna.core
+  :repl-options {:init-ns user
                  :nrepl-middleware [cider.piggieback/wrap-cljs-repl]}
 
   :repositories [["clojars" {:sign-releases false}]]

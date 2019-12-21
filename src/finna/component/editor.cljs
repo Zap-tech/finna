@@ -11,14 +11,14 @@
       
       :component-did-mount
       (fn [this]
-        (let [el-node (r/dom-node this)]
-
-          ;; Instantiate Code Mirror Instance
-          (js/CodeMirror. 
-           el-node 
-           #js {:lineNumbers true
-                :scrollbarStyle "simple"
-                :mode "clojure"})))
+        (let [el-node (r/dom-node this)
+              ;; Instantiate Code Mirror Instance
+              editor (js/CodeMirror. 
+                      el-node 
+                      #js {:lineNumbers true
+                           :scrollbarStyle "simple"
+                           :mode "clojure"})]
+          (re/dispatch [:set-editor editor])))
 
       :reagent-render
       (fn []
