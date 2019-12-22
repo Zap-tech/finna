@@ -37,8 +37,4 @@
           abi (<! result-channel)
           provider (.getDefaultProvider js/ethers)
           contract (js/ethers.Contract. test-address abi provider)]
-      (.log js/console contract)
-      (-> (.totalSupply contract)
-          (.then (fn [result]
-                   (.log js/console result)
-                   (println (aget result "_ethersType")))))))
+      (.log js/console contract)))
