@@ -5,7 +5,8 @@
    [finna.page.main :refer [c-main]]
    [finna.events]
    [finna.subscriptions]
-   [finna.effects]))
+   [finna.effects]
+   [finna.stack-machine]))
 
 
 (enable-console-print!)
