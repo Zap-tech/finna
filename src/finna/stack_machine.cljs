@@ -78,7 +78,6 @@
           ;; The channel's value is placed on the stack.
           (stack-channel? sm)
           (let [[value] (stack/get-stack sm)]
-            (println "HIT")
             (-> sm
                 (stack/pop-stack)
                 ;; If the channel value is `:procedure-done`, don't push the value to the stack

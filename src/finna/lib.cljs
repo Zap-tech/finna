@@ -43,6 +43,21 @@
   (-> abi js/JSON.parse (js->clj :keywordize-keys true)))
 
 
+(defn wrap-contract-function
+  "Wrap an contract method as a stack machine function."
+  [{:keys [namespace function-abi contract-fn]}]
+  (let [{:keys [constant inputs name outputs payable stateMutability type]} function-abi
+        num-inputs (count inputs)]
+    (wrap-function-with-arity
+     num-inputs
+     (fn [& args]
+       (let [done-channel (chan 1)]
+         (go
+           (-> (apply js-invoke contract-fn name args)
+               (.then (fn [result] (put! done-channel result)))))
+         done-channel)))))
+
+
 (defn generate-contract
   [sm]
   (let [done-channel (chan 1)]
@@ -53,6 +68,7 @@
             [success error] (json-abi-string address)
             abi-string (<! success)
             abi-form (abi-string->abi-form abi-string)]
+        (pprint abi-form)
         (put! done-channel :procedure-done)))
     (-> sm
         stack/pop-stack
