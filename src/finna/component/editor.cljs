@@ -18,7 +18,7 @@
                       #js {:lineNumbers true
                            :scrollbarStyle "simple"
                            :mode "clojure"})]
-          (re/dispatch [:set-editor editor])))
+          (re/dispatch [:editor/init editor])))
 
       :reagent-render
       (fn []

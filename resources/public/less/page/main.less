@@ -6,15 +6,15 @@
   min-width: 100%;
   height: 100%;
   grid-template-areas:
-    'header header  header'
-    'left   content right'
-    'footer footer  footer';
+    'header title-bar  title-bar'
+    'left   content    right'
+    'footer footer     footer';
   grid-template-columns: 2fr 6fr 2fr;
   grid-template-rows: 80px 1fr 40px;
 
   @media #media[desktop-query] {
     grid-template-areas:
-      'header header'
+      'header title-bar'
       'left   content'
       'right  content'
       'footer footer';
@@ -22,12 +22,16 @@
     grid-template-rows: 80px 1fr 1fr 40px;
   }
 
-  .panel {
-    overflow-y: auto;
+  > .panel {
+
   }
 
   > .panel.header {
     grid-area: header;    
+  }
+
+  > .panel.title-bar {
+    grid-area: title-bar;
   }
 
   > .panel.left {
@@ -43,6 +47,9 @@
   }
 
   > .panel.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: footer;
   }
 }

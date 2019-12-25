@@ -1,6 +1,7 @@
 # Makefile for Development and Production Builds
 .PHONY: fig-dev build-css watch-css
 .PHONY: build deps clean clean-all
+.PHONY: lein-deps webpack-deps
 .PHONY: help
 
 #
@@ -21,7 +22,7 @@ help:
 
 
 fig-dev:
-	lein figwheel dev-ui
+	lein figwheel dev
 
 
 clean:
@@ -34,8 +35,14 @@ clean-all: clean
 	rm -rf node_modules
 
 
-deps:
+lein-deps:
 	lein deps
+
+
+webpack-deps:
+	node ./node_modules/webpack-cli/bin/cli.js
+
+deps: lein-deps webpack-deps
 
 
 build: build-css build-ui

@@ -53,9 +53,18 @@
                                    :optimizations :none}}}}
 
   :npm {:dependencies
+        [;; Production Libraries
+         ["@blueprintjs/core" "3.22.3"]
+         ["@blueprintjs/datetime" "3.15.1"]
+         ["@blueprintjs/icons" "3.13.0"]
+         ["@blueprintjs/select" "3.11.2"]
+         ["@blueprintjs/table" "3.8.2"]
+         ["@blueprintjs/timezone" "3.6.1"]
 
-        ;; Development Dependencies
-        [[less "3.10.3"]
+         ;; Development Libraries
+         [webpack "4.41.4"]
+         [webpack-cli "3.3.10"]
+         [less "3.10.3"]
          [less-watch-compiler "1.14.1"]]}
 
   :profiles
