@@ -118,7 +118,7 @@
       import-finna-lib))
 
 
-(def test-script (str "*shit-token \"" test-address "\" contract"))
+(def test-script (str "\"" test-address "\" :name [] contract/call"))
 (comment
   (go
    (println

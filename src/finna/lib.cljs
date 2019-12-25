@@ -2,6 +2,7 @@
   (:require
    [clojure.pprint :refer [pprint]]
    [cljs.core.async :refer [<! go chan put! close!] :include-macros true]
+   [cuerdas.core :as str]
    [fif.core :as fif]
    [fif.def :as def :refer [wrap-function-with-arity
                             wrap-procedure-with-arity]]
@@ -58,19 +59,22 @@
          done-channel)))))
 
 
-(defn generate-contract
+(defn contract-call
   [sm]
   (let [done-channel (chan 1)]
     (go
-      (let [[address sym] (stack/get-stack sm)
+      (let [[fargs fname address] (stack/get-stack sm)
             _ (.log js/console "Address: " address)
-            _ (.log js/console "Symbol:  " sym)
             [success error] (json-abi-string address)
             abi-string (<! success)
-            abi-form (abi-string->abi-form abi-string)]
+            abi-form (abi-string->abi-form abi-string)
+            contract (js/ethers.Contract. address abi-string @*provider)]
+        ;; TODO: assertions
         (pprint abi-form)
-        (put! done-channel :procedure-done)))
+        (-> (apply js-invoke contract (str/camel fname) fargs)
+            (.then #(put! done-channel %)))))
     (-> sm
+        stack/pop-stack
         stack/pop-stack
         stack/pop-stack
         stack/dequeue-code
@@ -89,9 +93,11 @@
 (defn import-finna-lib [sm]
   (-> sm
       (set-global-word-defn
-       'contract generate-contract
+       'contract/call contract-call
        :stdlib? false
-       :doc "( sym address - ) Generates smart contract methods within the `sym` group for `address`."
+       :doc "( address fname fargs - result ) Calls the contract's
+       given `fname` function with the given vector of arguments
+       `fargs`."
        :group :finna.core)))
    
   
