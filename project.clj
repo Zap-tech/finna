@@ -35,7 +35,11 @@
                                    :asset-path "js/compiled/out"
                                    :optimizations :none
                                    :pretty-print true
-                                   :source-map-timestamp true}}
+                                   :source-map-timestamp true
+                                   :foreign-libs [{:file "public/js/index_bundle.js"
+                                                   :provides ["blueprint.core" "blueprint.icons"]
+                                                   :global-exports {blueprint.core  BluePrint.Core
+                                                                    blueprint.icons BluePrint.Icons}}]}}
 
                        :prod
                        {:source-paths ["src"]

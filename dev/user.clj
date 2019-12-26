@@ -12,4 +12,8 @@
   "Run (fig-dev-ui) to start figwheel cljs repl")
 
 
+(defn help []
+  (println help-message))
+
+
 (println help-message)
