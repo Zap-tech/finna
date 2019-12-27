@@ -29,6 +29,7 @@ clean:
 	lein clean
 	rm -rf dist
 	rm -rf ./resources/public/css
+	rm -rf ./resources/public/js/index_bundle.js
 
 
 clean-all: clean

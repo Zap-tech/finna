@@ -1,5 +1,7 @@
 (ns finna.core
   (:require
+   [cljsjs.react]
+   [cljsjs.react.dom]
    [re-frame.core :as re]
    [reagent.core :as r]
    [finna.page.main :refer [c-main]]

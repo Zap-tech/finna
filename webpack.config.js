@@ -6,5 +6,9 @@ module.exports = {
   output: {
     filename: 'index_bundle.js',
     path: path.resolve(__dirname, 'resources/public/js'),
+  },
+  externals: {
+    'react': 'React',
+    'react-dom' : 'ReactDOM'
   }
 };

@@ -10,7 +10,9 @@
                  [re-frame "0.11.0-rc2"]
                  [day8.re-frame/http-fx "v0.2.0"]
                  [org.clojure/core.async "0.4.500"]
-                 [fif-lang/fif "1.4.0"]]
+                 [fif-lang/fif "1.4.0"]
+                 [cljsjs/react "16.12.0-1"]
+                 [cljsjs/react-dom "16.12.0-1"]]
 
   :repl-options {:init-ns user
                  :nrepl-middleware [cider.piggieback/wrap-cljs-repl]}
@@ -38,8 +40,9 @@
                                    :source-map-timestamp true
                                    :foreign-libs [{:file "public/js/index_bundle.js"
                                                    :provides ["blueprint.core" "blueprint.icons"]
-                                                   :global-exports {blueprint.core  BluePrint.Core
-                                                                    blueprint.icons BluePrint.Icons}}]}}
+                                                   :global-exports {blueprint.core  BluePrintCore
+                                                                    blueprint.icons BluePrintIcons}
+                                                   :requires ["react" "react-dom"]}]}}
 
                        :prod
                        {:source-paths ["src"]
