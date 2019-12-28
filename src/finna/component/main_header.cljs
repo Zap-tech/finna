@@ -22,5 +22,7 @@
     [:> NavbarGroup {}
      [:> NavbarHeading {} "Finna"]
      [:> NavbarDivider {}]
-     [:> Popover {:content (r/as-element [c-file-menu])}
-      [:> Button {:text "File" :icon "document" :rightIcon "caret-down"}]]]]])
+     [:> ButtonGroup {}
+      [:> Popover {:content (r/as-element [c-file-menu])}
+       [:> Button {:text "File" :icon "document" :rightIcon "caret-down"}]]
+      [:> Button {:text "Run Script" :icon "console"}]]]]])
