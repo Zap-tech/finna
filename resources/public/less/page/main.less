@@ -10,7 +10,7 @@
     'left   content right'
     'bottom bottom  bottom'
     'footer footer  footer';
-  grid-template-columns: 2fr 6fr 4fr;
+  grid-template-columns: 1fr 3fr 3fr;
   grid-template-rows: auto 2fr 1fr 40px;
 
   @media #media[desktop-query] {
@@ -20,7 +20,7 @@
       'left   right'
       'bottom bottom'
       'footer footer';
-    grid-template-columns: 2fr 6fr;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: auto 2fr 1fr 1fr 40px;
   }
 
@@ -33,11 +33,11 @@
       'bottom'
       'footer';
     grid-template-columns: auto;
-    grid-template-rows: auto 1fr 1fr 1fr 40px;
+    grid-template-rows: repeat(5, auto) 40px;
   }
 
   > .panel.header {
-    grid-area: header;    
+    grid-area: header;
   }
 
   > .panel.left {

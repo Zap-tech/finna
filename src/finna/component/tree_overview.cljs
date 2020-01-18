@@ -14,7 +14,7 @@
              :label ":stdlib.core"
              :isExpanded true
              :childNodes [{:id 1 :icon "function" :label "and"}
-                          {:id 1 :icon "function" :label "or"}]}]))
+                          {:id 2 :icon "function" :label "or"}]}]))
 
 
 (defn c-tree-overview

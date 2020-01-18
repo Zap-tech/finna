@@ -1,0 +1,30 @@
+/// output-panel.less - Output Panel Component Styling
+
+.output-panel {
+  position: relative;
+  height: 100%;
+  box-shadow: inset 0px 0px 40px -5px rgba(0,0,0,0.1);
+
+  @media #media[tablet-query] {
+    min-height: 200px;
+    max-height: 600px;
+  }
+
+  .output-tab {
+    > .output-listing {
+      display: flex;
+      flex-direction: column;
+      padding: 0.5em 0;
+      overflow: auto;
+
+      > .output {
+        font-family: #font[monospace];
+        line-height: 1.2em;
+      }
+    }
+  }
+
+  .transactions-tab {
+    
+  }
+}
