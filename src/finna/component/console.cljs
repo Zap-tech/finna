@@ -8,4 +8,9 @@
 
 (defn c-console []
   [:div.console
-   [:span "console!"]])
+   [:div.output
+    [:pre.log "Hello World!"]
+    [:pre.error "This is an error"]]
+   [:div.input
+    [:div.prompt ">"]
+    [:input {:type "text"}]]])

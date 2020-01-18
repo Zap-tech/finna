@@ -31,12 +31,14 @@
   :cljsbuild {:builds {:dev
                        {:source-paths ["src"] 
                         :figwheel {:on-jsload "finna.core/re-render"}
-                        :compiler {:main finna.core
-                                   :output-dir "resources/public/js/compiled/out"
-                                   :output-to "resources/public/js/compiled/finna.js"
-                                   :asset-path "js/compiled/out"
-                                   :optimizations :none
-                                   :pretty-print true
+                        :compiler {:main                 finna.core
+                                   :output-dir           "resources/public/js/compiled/out"
+                                   :output-to            "resources/public/js/compiled/finna.js"
+                                   :asset-path           "js/compiled/out"
+                                   :optimizations        :none
+                                   :pretty-print         true
+                                   :closure-defines      {"re_frame.trace.trace_enabled_QMARK_" true}
+                                   :preloads             [day8.re-frame-10x.preload]
                                    :source-map-timestamp true
                                    :foreign-libs [{:file "public/js/index_bundle.js"
                                                    :provides ["blueprint.core" "blueprint.icons"]
@@ -80,6 +82,7 @@
     :resource-paths ["dev/resources"]
     :dependencies [[cider/piggieback "0.4.1"]
                    [org.clojure/tools.nrepl "0.2.13"]
+                   [day8.re-frame/re-frame-10x "0.4.5"]
                    [figwheel "0.5.19"]
                    [figwheel-sidecar "0.5.19"]
                    [binaryage/devtools "0.9.10"]

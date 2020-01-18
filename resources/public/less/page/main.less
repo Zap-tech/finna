@@ -21,7 +21,7 @@
       'bottom bottom'
       'footer footer';
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: auto 2fr 1fr 1fr 40px;
+    grid-template-rows: min-content 2fr 1fr 1fr 40px;
   }
 
   @media #media[tablet-query] {
@@ -33,7 +33,7 @@
       'bottom'
       'footer';
     grid-template-columns: auto;
-    grid-template-rows: repeat(5, auto) 40px;
+    grid-template-rows: min-content repeat(4, auto) 40px;
   }
 
   > .panel.header {
